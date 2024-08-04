@@ -9,7 +9,7 @@ bool gameOver;
 const int height = 20;
 const int width = 20;
 int headX, headY, fruitX, fruitY, score;
-int tailx[100], taily[100];
+int tailx[100], taily[100]; // stores each position of tail and its value changes to previous tail as the snake moves
 int tail_len;
 
 void setup();
@@ -30,7 +30,7 @@ int main() {
             draw();
             input();
             logic();
-            Sleep(30);
+            Sleep(30); // slows down this loop
             system("cls");
         }
     }
@@ -47,7 +47,7 @@ void setup(){
 }
 
 void draw(){
-    system("cls");
+    system("cls"); // clears the previous screen so that another updated board can be shown there at the same place
     // Uper Border
     cout << "\t\t";
     for(int i = 0; i < width-8; i++){
@@ -129,7 +129,7 @@ void logic(){
     int prev2x, prev2y;
     tailx[0] = headX;
     taily[0] = headY;
-    for(int i = 1; i < tail_len; i++){
+    for(int i = 1; i < tail_len; i++){ // updating all the tail positions as the snake moves
         prev2x = tailx[i];
         prev2y = taily[i];
         tailx[i] = prevx;
