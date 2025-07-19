@@ -1,18 +1,4 @@
 tasks:
-  - name: Setup AWS CLI credentials
-    init: |
-      mkdir -p ~/.aws
-      echo "[default]" > ~/.aws/credentials
-      echo "aws_access_key_id=${AKIASN62VZZXRQ4AC7PE}" >> ~/.aws/credentials
-      echo "aws_secret_access_key=${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}" >> ~/.aws/credentials
-      if [ ! -z "$AWS_SESSION_TOKEN" ]; then
-        echo "aws_session_token=${AWS_SESSION_TOKEN}" >> ~/.aws/credentials
-      fi
-      echo "[default]" > ~/.aws/config
-      echo "region=${AWS_DEFAULT_REGION:-us-east-1}" >> ~/.aws/config
-      
-  - name: Install AWS CLI and setup credentials
+  - name: Install AWS CLI
     init: |
       sudo apt-get update && sudo apt-get install -y awscli
-      # (same setup block for credentials here)
-
